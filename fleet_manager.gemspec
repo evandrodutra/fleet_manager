@@ -26,6 +26,12 @@ Gem::Specification.new do |spec|
     `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   end
 
+  spec.bindir        = 'bin'
+  spec.executables   = ['fleet_manager']
+  spec.require_paths = ['lib']
+
+  spec.add_dependency 'slop', '~> 4.6.2'
+
   spec.add_development_dependency 'bundler', '~> 1.16'
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'rspec', '~> 3.0'
