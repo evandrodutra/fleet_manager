@@ -1,6 +1,6 @@
 # FleetManager
 
-Simple command line program to find the number of Fleet Engineers necessary to operate vehicles.
+Simple CLI to find the number of Fleet Engineers necessary to operate vehicles.
 
 ## Installation
 
