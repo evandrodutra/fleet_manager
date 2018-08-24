@@ -2,6 +2,8 @@ require 'slop'
 require 'slop/array_option'
 
 require 'fleet_manager/version'
+require 'fleet_manager/validator'
+require 'fleet_manager/calculator'
 
 module FleetManager
   def self.opts
@@ -40,5 +42,15 @@ module FleetManager
   end
 
   def self.start
+    options = FleetManager.opts.to_hash
+
+    FleetManager::Validator.call(options)
+
+    result = FleetManager::Calculator.call(options[:s], options[:c], options[:p])
+
+    puts "fleet_engineers: #{result}"
+  rescue FleetManager::ValidationError => e
+    puts e
+    exit
   end
 end
